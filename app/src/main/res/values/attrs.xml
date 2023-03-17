@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Theme_SVAndroidLearnings">
+        <!-- colors -->
+        <attr name="colorBackground" format="color" />
+        <attr name="colorForeground" format="color" />
+
+        <attr name="colorTextPrimary" format="color" />
+        <attr name="colorTextSecondary" format="color" />
+        <attr name="colorTextTertiary" format="color" />
+        <attr name="colorTextHeadLine" format="color" />
+        <!-- end colors -->
+
+        <!-- dimension -->
+        <!-- text size -->
+        <attr name="sizeTextPrimary" format="dimension" />
+        <attr name="sizeTextSecondary" format="dimension" />
+        <attr name="sizeTextTertiary" format="dimension" />
+        <attr name="sizeTextHeadLine" format="dimension" />
+        <!-- end text size -->
+
+        <!-- margin size -->
+        <attr name="marginSizeFull" format="dimension" />
+        <attr name="marginSizeHalf" format="dimension" />
+        <attr name="marginSizeQuarter" format="dimension" />
+        <!-- end margin size -->
+
+        <!-- other sizes and dimen -->
+        <attr name="thumbnailDimen" format="dimension" />
+        <attr name="thumbnailSmall" format="dimension" />
+        <attr name="dividerDimen" format="dimension" />
+        <!-- other sizes and dimen -->
+        <!-- dimension -->
+
+        <!-- Other text styles -->
+        <attr name="textPrimary" format="reference" />
+        <attr name="textSecondary" format="reference" />
+        <attr name="textTertiary" format="reference" />
+        <attr name="textHeadLine" format="reference" />
+        <!-- other text styles -->
+    </declare-styleable>
+</resources>

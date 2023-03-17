@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TMBDTextHeadLine" parent="TextAppearance.Material3.TitleSmall">
+        <item name="android:textColor">?attr/colorTextHeadLine</item>
+        <item name="android:textSize">?attr/sizeTextHeadLine</item>
+    </style>
+
+    <style name="TMBDTextPrimary" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">?attr/colorTextPrimary</item>
+        <item name="android:textSize">?attr/sizeTextPrimary</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="TMBDTextSecondary" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">?attr/colorTextSecondary</item>
+        <item name="android:textSize">?attr/sizeTextSecondary</item>
+    </style>
+
+    <style name="TMBDTextTertiary" parent="TextAppearance.MaterialComponents.Tooltip">
+        <item name="android:textColor">?attr/colorTextTertiary</item>
+        <item name="android:textSize">?attr/sizeTextTertiary</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+</resources>

@@ -1,0 +1,94 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'com.google.dagger.hilt.android'
+    id 'kotlin-android-extensions'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    namespace 'com.tmdb.app'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.tmdb.app"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+    // todo move the deps to its won gradle file for better management.
+    def android_app_androidx_core = "1.7.0"
+    def android_life_cycle = "2.5.0"
+    def android_app_compact = "1.6.1"
+    def android_android_material = "1.8.0"
+    def android_constraint_layout = "2.1.4"
+    def android_jetpack_navigation = "2.5.3"
+    def android_paging_version = "3.1.1"
+    def android_hilt_version = "2.44.2"
+    def android_hilt_nav_version = "1.0.0"
+
+    def glide = "4.14.2"
+
+    def retrofit = "2.9.0"
+    def okhttp = "4.10.0"
+    def gson = "2.10.1"
+
+    def junit = "4.13.2"
+    def truth = "1.1.3"
+    def mockkVersion = "1.13.2"
+
+    implementation "androidx.core:core-ktx:$android_app_androidx_core"
+    implementation "androidx.appcompat:appcompat:$android_app_compact"
+    implementation "com.google.android.material:material:$android_android_material"
+    implementation "androidx.lifecycle:lifecycle-viewmodel:$android_life_cycle"
+    implementation "androidx.constraintlayout:constraintlayout:$android_constraint_layout"
+    implementation "androidx.navigation:navigation-fragment-ktx:$android_jetpack_navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$android_jetpack_navigation"
+    implementation "androidx.paging:paging-runtime:$android_paging_version"
+
+    implementation "com.github.bumptech.glide:glide:$glide"
+    kapt "com.github.bumptech.glide:compiler:$glide"
+
+    implementation "com.google.code.gson:gson:$gson"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+
+    implementation "com.google.dagger:hilt-android:$android_hilt_version"
+    kapt "com.google.dagger:hilt-compiler:$android_hilt_version"
+    implementation "androidx.hilt:hilt-navigation-fragment:$android_hilt_nav_version"
+
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp"
+    testImplementation "junit:junit:$junit"
+    testImplementation "com.google.truth:truth:$truth"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp"
+    testImplementation "io.mockk:mockk:${mockkVersion}"
+
+    androidTestImplementation "com.google.truth:truth:$truth"
+
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

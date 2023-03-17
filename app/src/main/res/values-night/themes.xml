@@ -1,0 +1,42 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.TMDB" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!--- colors -->
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/teal_1</item>
+        <item name="colorPrimaryVariant">@color/teal_2</item>
+        <item name="colorOnPrimary">@color/black_2</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/dark_blue_1</item>
+        <item name="colorSecondaryVariant">@color/dark_blue_2</item>
+        <item name="colorOnSecondary">@color/white_2</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        <item name="colorForeground">@color/black_2</item>
+        <item name="colorBackground">@color/white_2</item>
+
+        <item name="colorTextPrimary">@color/white_1</item>
+        <item name="colorTextSecondary">@color/white_2</item>
+        <item name="colorTextTertiary">@color/light_gray</item>
+        <item name="colorTextHeadLine">@color/white_1</item>
+
+        <item name="sizeTextPrimary">@dimen/textPrimary</item>
+        <item name="sizeTextSecondary">@dimen/textSecondary</item>
+        <item name="sizeTextTertiary">@dimen/textTertiary</item>
+        <item name="sizeTextHeadLine">@dimen/textHeadline</item>
+
+        <item name="marginSizeFull">@dimen/margin16dp</item>
+        <item name="marginSizeHalf">@dimen/margin8dp</item>
+        <item name="marginSizeQuarter">@dimen/margin4dp</item>
+        <item name="thumbnailDimen">@dimen/thumbnailImage</item>
+        <item name="thumbnailSmall">@dimen/thumbnailSmall</item>
+        <item name="dividerDimen">@dimen/dividerSize</item>
+
+        <!-- text styles -->
+        <item name="textPrimary">@style/TMBDTextPrimary</item>
+        <item name="textSecondary">@style/TMBDTextSecondary</item>
+        <item name="textTertiary">@style/TMBDTextTertiary</item>
+        <item name="textHeadLine">@style/TMBDTextHeadLine</item>
+    </style>
+</resources>
