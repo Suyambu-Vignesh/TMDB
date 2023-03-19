@@ -1,8 +1,8 @@
-package com.tmdb.app.core.repository.api
+package com.tmdb.app.core.shared.repository.api
 
 import androidx.paging.PagingData
-import com.tmdb.app.core.model.ContentModuleModel
-import com.tmdb.app.core.usecase.Result
+import com.tmdb.app.core.principle.model.ContentModuleModel
+import com.tmdb.app.core.principle.usecase.Result
 import com.tmdb.app.detail.model.MovieTvShowDetail
 import kotlinx.coroutines.flow.Flow
 

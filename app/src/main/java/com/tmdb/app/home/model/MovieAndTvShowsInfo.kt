@@ -1,8 +1,8 @@
 package com.tmdb.app.home.model
 
 import com.google.gson.annotations.SerializedName
-import com.tmdb.app.core.model.ContentModuleModel
-import com.tmdb.app.core.model.ModuleType
+import com.tmdb.app.core.principle.model.ContentModuleModel
+import com.tmdb.app.core.principle.model.ModuleType
 
 data class MovieAndTvShowsInfo(
     @SerializedName("adult")

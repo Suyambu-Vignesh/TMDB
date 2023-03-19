@@ -1,10 +1,12 @@
-package com.tmdb.app.core.service
+package com.tmdb.app.core.shared.service
 
 import androidx.paging.PagingData
 import com.google.common.truth.Truth
-import com.tmdb.app.core.model.ContentModuleModel
-import com.tmdb.app.core.repository.TmdbRepositoryImpl
-import com.tmdb.app.home.service.TmdbPagingSource
+import com.tmdb.app.core.principle.usecase.Result
+import com.tmdb.app.core.principle.model.ContentModuleModel
+import com.tmdb.app.core.shared.repository.TmdbRepositoryImpl
+import com.tmdb.app.core.shared.service.TmdbApiSource
+import com.tmdb.app.home.service.TmdbPopularMoviePagingSource
 import io.mockk.mockk
 import io.mockk.spyk
 import kotlinx.coroutines.flow.catch
@@ -27,7 +29,7 @@ class TmdbRepositoryImplTest {
     private lateinit var server: MockWebServer
     private lateinit var service: TmdbApiSource
     private lateinit var tmdbRepository: TmdbRepositoryImpl
-    private lateinit var tmdbPagingSource: TmdbPagingSource
+    private lateinit var tmdbPopularMoviePagingSource: TmdbPopularMoviePagingSource
 
     @Before
     fun setup() {
@@ -38,9 +40,9 @@ class TmdbRepositoryImplTest {
             .build()
             .create(TmdbApiSource::class.java)
 
-        tmdbPagingSource = spyk(TmdbPagingSource(service, 1))
+        tmdbPopularMoviePagingSource = spyk(TmdbPopularMoviePagingSource(service, 1))
         tmdbRepository = TmdbRepositoryImpl(
-            tmdbPagingSource,
+            tmdbPopularMoviePagingSource,
             service
         )
     }
@@ -56,12 +58,12 @@ class TmdbRepositoryImplTest {
 
     @Test
     fun `test paging source refreshkey` () = runBlocking {
-        Truth.assertThat(tmdbPagingSource.getRefreshKey(mockk())).isEqualTo(1)
+        Truth.assertThat(tmdbPopularMoviePagingSource.getRefreshKey(mockk())).isEqualTo(1)
     }
 
     @Test
     fun `test paging source success response` () = runBlocking {
-        var data: com.tmdb.app.core.usecase.Result<PagingData<ContentModuleModel>>? = null
+        var data: Result<PagingData<ContentModuleModel>>? = null
         tmdbRepository.getPopularMovies(1).catch {}.take(1).collect {
             data = it
         }

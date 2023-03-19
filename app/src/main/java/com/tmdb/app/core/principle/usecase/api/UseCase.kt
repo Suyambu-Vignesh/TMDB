@@ -1,4 +1,4 @@
-package com.tmdb.app.core.usecase.api
+package com.tmdb.app.core.principle.usecase.api
 
 import kotlinx.coroutines.flow.Flow
 

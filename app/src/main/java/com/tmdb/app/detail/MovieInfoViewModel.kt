@@ -2,9 +2,11 @@ package com.tmdb.app.detail
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
 /**
  * ViewModel for [MovieInfoFragment]
  */
-class MovieInfoViewModel : ViewModel() {
+@HiltViewModel
+class MovieInfoViewModel @Inject constructor() : ViewModel() {
 }

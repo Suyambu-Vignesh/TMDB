@@ -1,33 +1,29 @@
-package com.tmdb.app.core.repository
+package com.tmdb.app.core.shared.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.tmdb.app.core.model.ContentModuleModel
-import com.tmdb.app.core.repository.api.TmdbRepository
-import com.tmdb.app.core.service.TmdbApiSource
-import com.tmdb.app.core.usecase.GenericFailure
-import com.tmdb.app.core.usecase.PageLoadException
-import com.tmdb.app.core.usecase.Result
-import com.tmdb.app.core.usecase.ServiceFailure
+import com.tmdb.app.core.principle.model.ContentModuleModel
+import com.tmdb.app.core.shared.repository.api.TmdbRepository
+import com.tmdb.app.core.shared.service.TmdbApiSource
+import com.tmdb.app.core.principle.usecase.PageLoadException
+import com.tmdb.app.core.principle.usecase.Result
+import com.tmdb.app.core.principle.usecase.ServiceFailure
 import com.tmdb.app.detail.model.MovieTvShowDetail
-import com.tmdb.app.home.service.TmdbPagingSource
-import kotlinx.coroutines.currentCoroutineContext
+import com.tmdb.app.home.service.TmdbPopularMoviePagingSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.isActive
-import kotlinx.coroutines.isActive
 import javax.inject.Inject
 
 /**
  * Impl of TmdbRepository. Helps to connect with TMDB API.
  *
- * @param tmdbPagingSource Paging Source helps to fetch the Popular Movies and TV Shows.
+ * @param tmdbPopularMoviePagingSource Paging Source helps to fetch the Popular Movies and TV Shows.
  * @param tmdbApiSource TMDBApiSource Which helps to connect with TMDBApi.
  */
 class TmdbRepositoryImpl @Inject constructor(
-    private val tmdbPagingSource: TmdbPagingSource,
+    private val tmdbPopularMoviePagingSource: TmdbPopularMoviePagingSource,
     private val tmdbApiSource: TmdbApiSource
 ) : TmdbRepository {
     override suspend fun getPopularMovies(pageNumber: Int): Flow<Result<PagingData<ContentModuleModel>>> {
@@ -36,7 +32,7 @@ class TmdbRepositoryImpl @Inject constructor(
                 Pager(
                     PagingConfig(20)
                 ) {
-                    tmdbPagingSource
+                    tmdbPopularMoviePagingSource
                 }.flow.distinctUntilChanged().collect {
                     emit(Result.Response(it))
                 }
