@@ -1,4 +1,4 @@
-package com.tmdb.app.core.model
+package com.tmdb.app.core.principle.model
 
 /**
  * View Representation of List Item Model

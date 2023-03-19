@@ -1,4 +1,4 @@
-package com.tmdb.app.core.service
+package com.tmdb.app.core.shared.service
 
 import com.tmdb.app.BuildConfig
 import com.tmdb.app.detail.model.MovieTvShowDetail

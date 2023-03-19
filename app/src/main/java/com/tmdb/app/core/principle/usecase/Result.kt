@@ -1,4 +1,4 @@
-package com.tmdb.app.core.usecase
+package com.tmdb.app.core.principle.usecase
 
 /**
  * Result which will be provided by UseCase after processing the request.

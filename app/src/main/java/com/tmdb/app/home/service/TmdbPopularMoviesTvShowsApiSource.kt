@@ -2,10 +2,10 @@ package com.tmdb.app.home.service
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.tmdb.app.core.model.ContentModuleModel
-import com.tmdb.app.core.service.TmdbApiSource
-import com.tmdb.app.core.usecase.PageLoadException
-import com.tmdb.app.core.usecase.ServiceFailure
+import com.tmdb.app.core.principle.model.ContentModuleModel
+import com.tmdb.app.core.shared.service.TmdbApiSource
+import com.tmdb.app.core.principle.usecase.PageLoadException
+import com.tmdb.app.core.principle.usecase.ServiceFailure
 import com.tmdb.app.home.model.MovieAndTvShowCollections
 import retrofit2.Response
 
@@ -15,7 +15,7 @@ import retrofit2.Response
  * @param tmdbApiSource [TmdbApiSource] to fetch data from tmdb api
  * @param refreshKey Initial or refresh key
  */
-class TmdbPagingSource(
+class TmdbPopularMoviePagingSource(
     private val tmdbApiSource: TmdbApiSource,
     private val refreshKey: Int
 ) : PagingSource<Int, ContentModuleModel>() {

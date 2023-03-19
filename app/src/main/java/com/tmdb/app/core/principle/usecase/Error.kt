@@ -1,4 +1,4 @@
-package com.tmdb.app.core.usecase
+package com.tmdb.app.core.principle.usecase
 
 /**
  * Abstract representation of Failure State
