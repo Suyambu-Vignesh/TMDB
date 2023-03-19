@@ -6,6 +6,5 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 /**
  * ViewModel for [MovieInfoFragment]
  */
-@HiltViewModel
 class MovieInfoViewModel : ViewModel() {
 }

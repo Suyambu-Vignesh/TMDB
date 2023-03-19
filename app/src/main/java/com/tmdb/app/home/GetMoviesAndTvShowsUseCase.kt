@@ -1,6 +1,6 @@
 package com.tmdb.app.home
 
-import com.tmdb.app.core.usecase.UseCase
+import com.tmdb.app.core.usecase.api.UseCase
 import kotlinx.coroutines.flow.Flow
 
 /**
