@@ -31,12 +31,20 @@ sealed class Result<DataType>(
      * Represent the Error response
      *
      * @param failure the failure state which triggered this error
+     * @param message Optional argument. Holds a message about the error.
      * @param data Optional argument. Holds the API response
-     * @param throwable Exception in-case of [GenericFailure]
+     * @param throwable Optional argument. Exception in-case of [GenericFailure]
      */
     class Error<DataType>(
         failure: Failure,
+        message: String? = null,
         data: DataType? = null,
         val throwable: Throwable? = null
-    ) : Result<DataType>(data = data, failure = failure)
+    ) : Result<DataType>(data = data, message = message, failure = failure)
 }
+
+class PageLoadException(
+    val failure: Failure,
+    override val message: String? = null,
+    override val cause: Throwable? = null
+) : Exception(message, cause)

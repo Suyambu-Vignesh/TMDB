@@ -1,0 +1,164 @@
+{
+  "adult": false,
+  "backdrop_path": "/xgZ9AhvXqi9aSDWzCpoC9JAkLPY.jpg",
+  "created_by": [
+    {
+      "id": 1962748,
+      "credit_id": "5d9c87aea1353300128f04c7",
+      "name": "Gábor Domokos",
+      "gender": 0,
+      "profile_path": null
+    },
+    {
+      "id": 1962751,
+      "credit_id": "5d9c879a6d675a0028f363ec",
+      "name": "Barbara Hámori",
+      "gender": 1,
+      "profile_path": "/kfga4O88UsKOQtmDlKdRTzMDStt.jpg"
+    },
+    {
+      "id": 2190774,
+      "credit_id": "5d9c87a4439be1001279b164",
+      "name": "Búss Gábor Olivér",
+      "gender": 0,
+      "profile_path": null
+    },
+    {
+      "id": 2428323,
+      "credit_id": "5d9c87c3439be1001279b1bb",
+      "name": "Bereczki Viktor",
+      "gender": 0,
+      "profile_path": null
+    }
+  ],
+  "episode_run_time": [
+    42
+  ],
+  "first_air_date": "2019-01-01",
+  "genres": [
+    {
+      "id": 35,
+      "name": "Comedy"
+    }
+  ],
+  "homepage": "https://rtl.hu/rtlklub/dragaorokosok",
+  "id": 85425,
+  "in_production": true,
+  "languages": [
+    "hu"
+  ],
+  "last_air_date": "2023-03-17",
+  "last_episode_to_air": {
+    "id": 4275357,
+    "name": "Episode 59",
+    "overview": "",
+    "vote_average": 0,
+    "vote_count": 0,
+    "air_date": "2023-03-17",
+    "episode_number": 59,
+    "production_code": "",
+    "runtime": null,
+    "season_number": 5,
+    "show_id": 85425,
+    "still_path": null
+  },
+  "name": "Dear Heirs",
+  "next_episode_to_air": {
+    "id": 4300889,
+    "name": "Episode 60",
+    "overview": "",
+    "vote_average": 0,
+    "vote_count": 0,
+    "air_date": "2023-03-20",
+    "episode_number": 60,
+    "production_code": "",
+    "runtime": null,
+    "season_number": 5,
+    "show_id": 85425,
+    "still_path": null
+  },
+  "networks": [
+    {
+      "id": 833,
+      "logo_path": "/r3GEPOAXaREH765QVreesBK9mE0.png",
+      "name": "RTL",
+      "origin_country": "HU"
+    }
+  ],
+  "number_of_episodes": 353,
+  "number_of_seasons": 5,
+  "origin_country": [
+    "HU"
+  ],
+  "original_language": "hu",
+  "original_name": "Drága örökösök",
+  "overview": "Hungarian remake of the Bulgarian series about a disconnect family living together in order to get an inheritance.",
+  "popularity": 1948.879,
+  "poster_path": "/xDOUahrwEsgDlejXjZLc9lOljSx.jpg",
+  "production_companies": [],
+  "production_countries": [
+    {
+      "iso_3166_1": "HU",
+      "name": "Hungary"
+    }
+  ],
+  "seasons": [
+    {
+      "air_date": "2019-01-01",
+      "episode_count": 81,
+      "id": 115324,
+      "name": "Season 1",
+      "overview": "",
+      "poster_path": "/i6zkDUUnUVmtS07fI7BwClLhecT.jpg",
+      "season_number": 1
+    },
+    {
+      "air_date": "2019-08-12",
+      "episode_count": 61,
+      "id": 128945,
+      "name": "Season 2",
+      "overview": "",
+      "poster_path": "/mdyfJNLLE7WdC1WpJJUqtcjtKzm.jpg",
+      "season_number": 2
+    },
+    {
+      "air_date": "2020-01-02",
+      "episode_count": 80,
+      "id": 140099,
+      "name": "Season 3",
+      "overview": "",
+      "poster_path": null,
+      "season_number": 3
+    },
+    {
+      "air_date": "2020-09-21",
+      "episode_count": 67,
+      "id": 163357,
+      "name": "Season 4",
+      "overview": "",
+      "poster_path": null,
+      "season_number": 4
+    },
+    {
+      "air_date": "2022-12-27",
+      "episode_count": 64,
+      "id": 322037,
+      "name": "Season 5",
+      "overview": "",
+      "poster_path": null,
+      "season_number": 5
+    }
+  ],
+  "spoken_languages": [
+    {
+      "english_name": "Hungarian",
+      "iso_639_1": "hu",
+      "name": "Magyar"
+    }
+  ],
+  "status": "Returning Series",
+  "tagline": "",
+  "type": "Scripted",
+  "vote_average": 5.3,
+  "vote_count": 7
+}
