@@ -8,5 +8,4 @@ import javax.inject.Inject
  * ViewModel for [MovieInfoFragment]
  */
 @HiltViewModel
-class MovieInfoViewModel @Inject constructor() : ViewModel() {
-}
+class MovieInfoViewModel @Inject constructor() : ViewModel()

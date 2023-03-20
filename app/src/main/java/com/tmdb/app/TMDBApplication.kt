@@ -7,4 +7,4 @@ import dagger.hilt.android.HiltAndroidApp
  * Core Application Instance of [TMDB]
  */
 @HiltAndroidApp
-class TMDBApplication: Application()
+class TMDBApplication : Application()
