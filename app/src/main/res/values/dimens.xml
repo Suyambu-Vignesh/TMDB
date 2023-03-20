@@ -5,12 +5,13 @@
     <dimen name="margin4dp">4dp</dimen>
 
     <!-- text size -->
-    <dimen name="textHeadline">18sp</dimen>
+
+    <dimen name="textSubHeadline">18sp</dimen>
+    <dimen name="textHeadline">22sp</dimen>
     <dimen name="textPrimary">16sp</dimen>
     <dimen name="textSecondary">16sp</dimen>
     <dimen name="textTertiary">12sp</dimen>
 
-    <dimen name="thumbnailImage">75dp</dimen>
-    <dimen name="thumbnailSmall">25dp</dimen>
+    <dimen name="thumbnailImage">104dp</dimen>
     <dimen name="dividerSize">0.5dp</dimen>
 </resources>

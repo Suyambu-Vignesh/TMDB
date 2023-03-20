@@ -1,6 +1,9 @@
 package com.tmdb.app.home.model
 
+import android.content.Context
 import com.google.gson.annotations.SerializedName
+import com.tmdb.app.BuildConfig
+import com.tmdb.app.core.principle.ImageUtils
 import com.tmdb.app.core.principle.model.ContentModuleModel
 import com.tmdb.app.core.principle.model.ModuleType
 
@@ -36,5 +39,18 @@ data class MovieAndTvShowsInfo(
 ) : ContentModuleModel {
     override fun getType(): ModuleType {
         return ModuleType.MOVIE_TILE
+    }
+
+    /**
+     * Helper function to frame the Image Url and return the string value
+     *
+     * @param context - Context
+     * @return Processed image url or null
+     */
+    fun getThumnailUrl(context: Context): String? {
+        if (backdropPath == null) {
+            return null
+        }
+        return BuildConfig.TMDB_API_IMAGE_BASE_URL + ImageUtils.getThumbnailImageSize(context) + "/" + backdropPath
     }
 }

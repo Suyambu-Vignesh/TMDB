@@ -20,6 +20,7 @@ android {
         versionName "1.0"
         buildConfigField("String", "TMDB_API_KEY", TMDB_API_KEY)
         buildConfigField("String", "TMDB_API_BASE_URL", TMDB_API_BASE_URL)
+        buildConfigField("String", "TMDB_API_IMAGE_BASE_URL", TMDB_API_IMAGE_BASE_URL)
         buildConfigField("String", "TMBD_API_VERSION", TMBD_API_VERSION)
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

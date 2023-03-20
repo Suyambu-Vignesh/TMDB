@@ -5,10 +5,10 @@
     <color name="teal_1">#01b4e4</color>
     <color name="teal_2">#0496bd</color>
     <color name="white_1">#FFFFFF</color>
-    <color name="white_2">#FFeeeeee</color>
+    <color name="white_2">#FFdddddd</color>
     <color name="light_gray">#FFcccccc</color>
     <color name="gray">#FF999999</color>
     <color name="dark_gray">#FF333333</color>
-    <color name="black_2">#FF111111</color>
+    <color name="black_2">#FF222222</color>
     <color name="black_1">#000000</color>
 </resources>
