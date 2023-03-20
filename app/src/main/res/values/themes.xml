@@ -13,8 +13,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
 
-        <item name="colorForeground">@color/white_2</item>
-        <item name="colorBackground">@color/black_2</item>
+        <item name="colorForeground">@color/gray</item>
+        <item name="colorBackground">@color/white_2</item>
 
         <item name="colorTextPrimary">@color/black_1</item>
         <item name="colorTextSecondary">@color/black_2</item>
@@ -24,20 +24,23 @@
         <item name="sizeTextPrimary">@dimen/textPrimary</item>
         <item name="sizeTextSecondary">@dimen/textSecondary</item>
         <item name="sizeTextTertiary">@dimen/textTertiary</item>
-        <item name="sizeTextHeadLine">@dimen/textHeadline</item>
+        <item name="sizeTextSubHeadLine">@dimen/textSubHeadline</item>
 
         <item name="marginSizeFull">@dimen/margin16dp</item>
         <item name="marginSizeHalf">@dimen/margin8dp</item>
         <item name="marginSizeQuarter">@dimen/margin4dp</item>
         <item name="thumbnailDimen">@dimen/thumbnailImage</item>
-        <item name="thumbnailSmall">@dimen/thumbnailSmall</item>
         <item name="dividerDimen">@dimen/dividerSize</item>
 
         <!-- text styles -->
         <item name="textPrimary">@style/TMBDTextPrimary</item>
         <item name="textSecondary">@style/TMBDTextSecondary</item>
         <item name="textTertiary">@style/TMBDTextTertiary</item>
+        <item name="textSubHeadLine">@style/TMBDTextSubHeadLine</item>
         <item name="textHeadLine">@style/TMBDTextHeadLine</item>
+
+        <!-- content desc -->
+        <item name="contentDescMovieThumbnail">@string/content_desc_movie_thumbnail</item>
     </style>
 
     <style name="Theme.TMDB.NoActionBar">

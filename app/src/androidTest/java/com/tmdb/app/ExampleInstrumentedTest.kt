@@ -19,4 +19,40 @@ class ExampleInstrumentedTest {
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.tmdb.app", appContext.packageName)
     }
+
+    class Solution {
+        fun canPlaceFlowers(flowerbed: IntArray, n: Int): Boolean {
+            var index = 1
+
+            var count = 0
+
+            while (index < flowerbed.size) {
+                when {
+                    (flowerbed[index] == 1) -> {
+                        index += 2
+                    }
+
+                    (
+                        flowerbed[index] == 0 &&
+                            flowerbed[index - 1] == 0 &&
+                            (index == flowerbed.size - 1 || flowerbed[index + 1] == 0)
+                        ) -> {
+                        index += 2
+
+                        count++
+                    }
+
+                    else -> {
+                        index++
+                    }
+                }
+
+                if (count >= n) {
+                    return true
+                }
+            }
+
+            return false
+        }
+    }
 }

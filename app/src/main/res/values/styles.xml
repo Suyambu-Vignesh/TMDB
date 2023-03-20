@@ -5,6 +5,11 @@
         <item name="android:textSize">?attr/sizeTextHeadLine</item>
     </style>
 
+    <style name="TMBDTextSubHeadLine" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textColor">?attr/colorTextHeadLine</item>
+        <item name="android:textSize">?attr/sizeTextSubHeadLine</item>
+    </style>
+
     <style name="TMBDTextPrimary" parent="TextAppearance.MaterialComponents.Body1">
         <item name="android:textColor">?attr/colorTextPrimary</item>
         <item name="android:textSize">?attr/sizeTextPrimary</item>
