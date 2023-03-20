@@ -1,7 +1,6 @@
 package com.tmdb.app.core.shared.repository.api
 
-import androidx.paging.PagingData
-import com.tmdb.app.core.principle.model.ContentModuleModel
+import com.tmdb.app.core.principle.model.PagingContentModules
 import com.tmdb.app.core.principle.usecase.Result
 import com.tmdb.app.detail.model.MovieTvShowDetail
 import kotlinx.coroutines.flow.Flow
@@ -17,7 +16,7 @@ interface TmdbRepository {
      */
     suspend fun getPopularMovies(
         pageNumber: Int
-    ): Flow<Result<PagingData<ContentModuleModel>>>
+    ): Flow<Result<PagingContentModules>>
 
     /**
      * Will help to fetch the detail of a Movie or TvShow

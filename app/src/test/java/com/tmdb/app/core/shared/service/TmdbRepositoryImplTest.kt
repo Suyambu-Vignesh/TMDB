@@ -2,10 +2,9 @@ package com.tmdb.app.core.shared.service
 
 import androidx.paging.PagingData
 import com.google.common.truth.Truth
-import com.tmdb.app.core.principle.usecase.Result
 import com.tmdb.app.core.principle.model.ContentModuleModel
+import com.tmdb.app.core.principle.usecase.Result
 import com.tmdb.app.core.shared.repository.TmdbRepositoryImpl
-import com.tmdb.app.core.shared.service.TmdbApiSource
 import com.tmdb.app.home.service.TmdbPopularMoviePagingSource
 import io.mockk.mockk
 import io.mockk.spyk
@@ -57,12 +56,12 @@ class TmdbRepositoryImplTest {
     }
 
     @Test
-    fun `test paging source refreshkey` () = runBlocking {
+    fun `test paging source refreshkey`() = runBlocking {
         Truth.assertThat(tmdbPopularMoviePagingSource.getRefreshKey(mockk())).isEqualTo(1)
     }
 
     @Test
-    fun `test paging source success response` () = runBlocking {
+    fun `test paging source success response`() = runBlocking {
         var data: Result<PagingData<ContentModuleModel>>? = null
         tmdbRepository.getPopularMovies(1).catch {}.take(1).collect {
             data = it

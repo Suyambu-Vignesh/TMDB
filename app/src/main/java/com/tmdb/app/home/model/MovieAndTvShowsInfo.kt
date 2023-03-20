@@ -35,10 +35,6 @@ data class MovieAndTvShowsInfo(
     val voteCount: Int? = null
 ) : ContentModuleModel {
     override fun getType(): ModuleType {
-       return ModuleType.MOVIE_TILE
-    }
-
-    override fun getId(): String {
-        return (id ?: "") as String
+        return ModuleType.MOVIE_TILE
     }
 }

@@ -11,8 +11,12 @@ import com.google.gson.annotations.SerializedName
  * @param totalResults total number of Movies/TvShows.
  */
 data class MovieAndTvShowCollections(
-    @SerializedName("page") val page: Int,
-    @SerializedName("results") val results: ArrayList<MovieAndTvShowsInfo> = arrayListOf(),
-    @SerializedName("total_pages") val totalPages: Int,
-    @SerializedName("total_results") val totalResults: Int
+    @SerializedName("page")
+    val page: Int,
+    @SerializedName("results")
+    val results: ArrayList<MovieAndTvShowsInfo> = arrayListOf(),
+    @SerializedName("total_pages")
+    val totalPages: Int,
+    @SerializedName("total_results")
+    val totalResults: Int
 )

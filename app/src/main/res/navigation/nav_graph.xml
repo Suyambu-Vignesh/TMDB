@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/HomeFragment"
-        android:name="com.tmdb.app.home.HomeFragment"
-        tools:layout="@layout/fragment_home">
+        android:name="com.tmdb.app.home.ShowsInfoFragament"
+        tools:layout="@layout/fragment_shows_info">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"

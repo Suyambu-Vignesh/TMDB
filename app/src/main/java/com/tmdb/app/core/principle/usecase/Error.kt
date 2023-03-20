@@ -31,5 +31,3 @@ class ServiceFailure(val errorCode: Int) : Failure
  * Failure happened because of Exception or un-handled error.
  */
 class GenericFailure : Failure
-
-

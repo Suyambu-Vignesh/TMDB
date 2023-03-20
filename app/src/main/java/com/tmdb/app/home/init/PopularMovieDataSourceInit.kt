@@ -9,7 +9,7 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-class PopularMovieDataSourceModule {
+class PopularMovieDataSourceInit {
     @Provides
     fun provides(tmdbApiSource: TmdbApiSource): TmdbPopularMoviePagingSource {
         return TmdbPopularMoviePagingSource(tmdbApiSource, 1)

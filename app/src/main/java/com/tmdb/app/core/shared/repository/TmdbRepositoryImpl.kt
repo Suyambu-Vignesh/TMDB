@@ -2,13 +2,12 @@ package com.tmdb.app.core.shared.repository
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import androidx.paging.PagingData
-import com.tmdb.app.core.principle.model.ContentModuleModel
-import com.tmdb.app.core.shared.repository.api.TmdbRepository
-import com.tmdb.app.core.shared.service.TmdbApiSource
+import com.tmdb.app.core.principle.model.PagingContentModules
 import com.tmdb.app.core.principle.usecase.PageLoadException
 import com.tmdb.app.core.principle.usecase.Result
 import com.tmdb.app.core.principle.usecase.ServiceFailure
+import com.tmdb.app.core.shared.repository.api.TmdbRepository
+import com.tmdb.app.core.shared.service.TmdbApiSource
 import com.tmdb.app.detail.model.MovieTvShowDetail
 import com.tmdb.app.home.service.TmdbPopularMoviePagingSource
 import kotlinx.coroutines.flow.Flow
@@ -26,7 +25,7 @@ class TmdbRepositoryImpl @Inject constructor(
     private val tmdbPopularMoviePagingSource: TmdbPopularMoviePagingSource,
     private val tmdbApiSource: TmdbApiSource
 ) : TmdbRepository {
-    override suspend fun getPopularMovies(pageNumber: Int): Flow<Result<PagingData<ContentModuleModel>>> {
+    override suspend fun getPopularMovies(pageNumber: Int): Flow<Result<PagingContentModules>> {
         return flow {
             try {
                 Pager(
@@ -38,7 +37,7 @@ class TmdbRepositoryImpl @Inject constructor(
                 }
             } catch (pageLoadException: PageLoadException) {
                 emit(
-                    Result.Error<PagingData<ContentModuleModel>>(
+                    Result.Error<PagingContentModules>(
                         pageLoadException.failure,
                         throwable = pageLoadException.cause
                     )
