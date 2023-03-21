@@ -20,8 +20,9 @@ import javax.inject.Inject
  */
 @Module
 @InstallIn(FragmentComponent::class)
-class ContentPagingAdapter @Inject constructor(private val delegateManager: RecyclerViewHolderDelegateManager<ContentModuleModel>) :
-    PagingDataAdapter<ContentModuleModel, RecyclerView.ViewHolder>(DiffAdapter()) {
+class ContentPagingAdapter @Inject constructor(
+    private val delegateManager: RecyclerViewHolderDelegateManager<ContentModuleModel>
+) : PagingDataAdapter<ContentModuleModel, RecyclerView.ViewHolder>(DiffAdapter()) {
 
     internal class DiffAdapter : DiffUtil.ItemCallback<ContentModuleModel>() {
         override fun areItemsTheSame(

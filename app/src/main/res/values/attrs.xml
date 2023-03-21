@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="Theme_SVAndroidLearnings">
-        <!--content-desc -->
-        <attr name="contentDescMovieThumbnail" format="string" />
-
         <!-- colors -->
         <attr name="colorBackground" format="color" />
         <attr name="colorForeground" format="color" />
@@ -24,6 +21,7 @@
         <!-- end text size -->
 
         <!-- margin size -->
+        <attr name="marginSize2X" format="dimension" />
         <attr name="marginSizeFull" format="dimension" />
         <attr name="marginSizeHalf" format="dimension" />
         <attr name="marginSizeQuarter" format="dimension" />
@@ -42,5 +40,21 @@
         <attr name="textSubHeadLine" format="reference" />
         <attr name="textHeadLine" format="reference" />
         <!-- other text styles -->
+
+        <!--content-desc -->
+        <attr name="contentDescMovieThumbnail" format="string" />
+        <attr name="contentDescNoNetworkImage" format="string" />
+        <!-- end content-desc-->
+
+        <!-- string const -->
+        <attr name="stringNoNetworkError" format="string"/>
+        <attr name="stringServerSideError" format="string"/>
+        <attr name="stringClientSideError" format="string"/>
+        <!-- end string const -->
+
+        <!-- Button Style -->
+        <attr name="buttonColored" format="reference" />
+        <attr name="buttonSmallColored" format="reference" />
+        <!-- end button Style -->
     </declare-styleable>
 </resources>

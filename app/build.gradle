@@ -15,7 +15,7 @@ android {
     defaultConfig {
         applicationId "com.tmdb.app"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
         buildConfigField("String", "TMDB_API_KEY", TMDB_API_KEY)

@@ -6,7 +6,9 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="?attr/marginSizeHalf"
     android:layout_marginTop="?attr/marginSizeHalf"
-    android:layout_marginBottom="?attr/marginSizeHalf">
+    android:layout_marginBottom="?attr/marginSizeHalf"
+    app:cardCornerRadius="?attr/marginSizeQuarter"
+    app:cardElevation="?attr/marginSizeQuarter">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -44,7 +46,6 @@
             android:id="@+id/image_show_thumbnail"
             android:layout_width="0dp"
             android:layout_height="?attr/thumbnailDimen"
-            android:background="?attr/colorForeground"
             android:contentDescription="?attr/contentDescMovieThumbnail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -58,7 +59,7 @@
             app:layout_constraintBottom_toBottomOf="@id/image_show_thumbnail"
             app:layout_constraintStart_toStartOf="@id/image_show_thumbnail" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_show_title"
             style="?attr/textSubHeadLine"
             android:layout_width="0dp"
@@ -70,7 +71,7 @@
             app:layout_constraintStart_toStartOf="@id/left_guideline"
             app:layout_constraintTop_toBottomOf="@id/image_show_thumbnail" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_release_date"
             style="?attr/textTertiary"
             android:layout_width="0dp"
