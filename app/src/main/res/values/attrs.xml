@@ -29,6 +29,7 @@
 
         <!-- other sizes and dimen -->
         <attr name="thumbnailDimen" format="dimension" />
+        <attr name="posterDimen" format="dimension" />
         <attr name="dividerDimen" format="dimension" />
         <!-- other sizes and dimen -->
         <!-- dimension -->
@@ -37,6 +38,7 @@
         <attr name="textPrimary" format="reference" />
         <attr name="textSecondary" format="reference" />
         <attr name="textTertiary" format="reference" />
+        <attr name="textDeeplink" format="reference" />
         <attr name="textSubHeadLine" format="reference" />
         <attr name="textHeadLine" format="reference" />
         <!-- other text styles -->
@@ -47,14 +49,21 @@
         <!-- end content-desc-->
 
         <!-- string const -->
-        <attr name="stringNoNetworkError" format="string"/>
-        <attr name="stringServerSideError" format="string"/>
-        <attr name="stringClientSideError" format="string"/>
+        <attr name="stringNoNetworkError" format="string" />
+        <attr name="stringServerSideError" format="string" />
+        <attr name="stringClientSideError" format="string" />
         <!-- end string const -->
 
         <!-- Button Style -->
         <attr name="buttonColored" format="reference" />
         <attr name="buttonSmallColored" format="reference" />
         <!-- end button Style -->
+
+        <!-- anim -->
+        <attr name="slideInEnterAnim" format="reference" />
+        <attr name="fadeOutExitAnim" format="reference" />
+        <attr name="fadeInPopInAnim" format="reference" />
+        <attr name="slideOutPopOutAnim" format="reference" />
+        <!-- exit anim -->
     </declare-styleable>
 </resources>

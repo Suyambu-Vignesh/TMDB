@@ -9,25 +9,33 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import androidx.paging.PagingData
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
+import com.tmdb.app.R
+import com.tmdb.app.core.principle.TmdbLogging
 import com.tmdb.app.core.principle.model.ContentModuleModel
 import com.tmdb.app.core.principle.model.PagingContentModules
 import com.tmdb.app.core.principle.usecase.Result
 import com.tmdb.app.core.shared.view.viewholderdelegates.ContentPagingAdapter
 import com.tmdb.app.core.shared.view.viewholderdelegates.PagingLoadStateAdapter
+import com.tmdb.app.core.shared.view.viewholderdelegates.RecyclerViewHolderClickListener
 import com.tmdb.app.databinding.FragmentShowsInfoBinding
+import com.tmdb.app.detail.ShowDetailFragment
+import com.tmdb.app.home.model.MovieAndTvShowsInfo
+import com.tmdb.app.home.model.decideOnState
 import com.tmdb.app.home.model.getLoadingData
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.distinctUntilChanged
 import javax.inject.Inject
 
 /**
  * View to Display the list of popular movies
  */
 @AndroidEntryPoint
-class ShowsInfoFragament : Fragment() {
+class ShowsInfoFragament : Fragment(), RecyclerViewHolderClickListener<ContentModuleModel> {
 
     @Inject
     lateinit var showsInfoAdapter: ContentPagingAdapter
@@ -43,6 +51,14 @@ class ShowsInfoFragament : Fragment() {
 
     private val binding get() = _binding!!
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        viewModel.getShowInfo(
+            ShowConfig.PopularMovieShowConfig()
+        )
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -53,23 +69,42 @@ class ShowsInfoFragament : Fragment() {
             footer = footerPagingLoadStateAdapter
         )
         binding.viewRecyclerview.layoutManager = GridLayoutManager(context, 2, VERTICAL, false)
-        viewModel.getShowInfo(
-            ShowConfig.PopularMovieShowConfig()
-        )
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
+            repeatOnLifecycle(Lifecycle.State.CREATED) {
                 showsInfoAdapter.submitData(PagingData.getLoadingData())
-                viewModel.getShowInfoFlow().collectLatest {
+                viewModel.getShowInfoFlow().distinctUntilChanged().collectLatest {
                     showResult(it)
                 }
 
                 viewModel.getShowsStateFlow().collectLatest {
                     updateState(it)
+                }
+
+                showsInfoAdapter.addLoadStateListener { loadState ->
+                    loadState.decideOnState(
+                        showsInfoAdapter,
+                        showLoading = {
+                            TmdbLogging.info(toString(), "recyler view is loading")
+                        },
+                        showEmptyState = { visible ->
+                            TmdbLogging.info(
+                                toString(),
+                                "recyler view is loading" + visible
+                            )
+                        },
+                        showError = { message ->
+                            TmdbLogging.info(
+                                toString(),
+                                "recyler view is loading" + message
+                            )
+                        }
+                    )
                 }
             }
         }
@@ -95,7 +130,6 @@ class ShowsInfoFragament : Fragment() {
 
     private fun showResult(modules: PagingContentModules) {
         _binding?.let {
-            it.viewProgress.visibility = View.GONE
             it.viewError.visibility = View.GONE
             it.viewRecyclerview.visibility = View.VISIBLE
         }
@@ -109,5 +143,18 @@ class ShowsInfoFragament : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClicked(dataType: ContentModuleModel) {
+        if (dataType is MovieAndTvShowsInfo) {
+
+            if (dataType.id == null) {
+                return
+            }
+
+            val bundle = Bundle()
+            bundle.putInt(ShowDetailFragment.ARGUMENT_MOVIE_ID, dataType.id)
+            findNavController().navigate(R.id.action_to_ShowDetailFragment, bundle)
+        }
     }
 }

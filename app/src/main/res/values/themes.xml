@@ -5,7 +5,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/dark_blue_1</item>
         <item name="colorPrimaryVariant">@color/dark_blue_2</item>
-        <item name="colorOnPrimary">@color/white_2</item>
+        <item name="colorOnPrimary">@color/white_1</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_1</item>
         <item name="colorSecondaryVariant">@color/teal_2</item>
@@ -32,11 +32,13 @@
         <item name="marginSizeQuarter">@dimen/margin4dp</item>
         <item name="marginSize2X">@dimen/margin32dp</item>
         <item name="thumbnailDimen">@dimen/thumbnailImage</item>
+        <item name="posterDimen">@dimen/posterImage</item>
         <item name="dividerDimen">@dimen/dividerSize</item>
 
         <!-- text styles -->
         <item name="textPrimary">@style/TMBDTextPrimary</item>
         <item name="textSecondary">@style/TMBDTextSecondary</item>
+        <item name="textDeeplink">@style/TMBDTextDeeplink</item>
         <item name="textTertiary">@style/TMBDTextTertiary</item>
         <item name="textSubHeadLine">@style/TMBDTextSubHeadLine</item>
         <item name="textHeadLine">@style/TMBDTextHeadLine</item>
@@ -53,6 +55,12 @@
         <!-- button style -->
         <item name="buttonColored">@style/TMBDButton</item>
         <item name="buttonSmallColored">@style/TMBDButtonSmall</item>
+
+        <!-- anim -->
+        <item name="slideInEnterAnim">@anim/slide_in</item>
+        <item name="fadeOutExitAnim">@anim/fade_out</item>
+        <item name="fadeInPopInAnim">@anim/fade_in</item>
+        <item name="slideOutPopOutAnim">@anim/slide_out</item>
     </style>
 
     <style name="Theme.TMDB.NoActionBar">

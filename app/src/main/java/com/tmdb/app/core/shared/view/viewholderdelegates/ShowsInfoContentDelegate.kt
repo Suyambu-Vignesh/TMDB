@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.tmdb.app.R
+import com.tmdb.app.core.principle.ImageUtils
 import com.tmdb.app.core.principle.model.ContentModuleModel
 import com.tmdb.app.databinding.ViewShowInfoBinding
 import com.tmdb.app.home.model.MovieAndTvShowsInfo
@@ -63,8 +64,11 @@ class ShowsInfoContentDelegate(
 
             val context = viewBinding.imageShowThumbnail.context
 
-            if (context != null) {
-                val imgUrl = item.getThumnailUrl(viewBinding.imageShowThumbnail.context)
+            if (context != null && item.backdropPath != null) {
+                val imgUrl = ImageUtils.getThumbnailImageSize(
+                    viewBinding.imageShowThumbnail.context,
+                    item.backdropPath
+                )
                 Glide.with(viewBinding.imageShowThumbnail.context)
                     .load(imgUrl).centerCrop()
                     .placeholder(R.drawable.ic_placeholder).into(viewBinding.imageShowThumbnail)

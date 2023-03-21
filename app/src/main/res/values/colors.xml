@@ -11,4 +11,10 @@
     <color name="dark_gray">#FF333333</color>
     <color name="black_2">#FF222222</color>
     <color name="black_1">#000000</color>
+
+    <color name="status_planned">#FFfcba03</color>
+    <color name="status_in_prod">#FFfcfc03</color>
+    <color name="status_post_prod">#FFbefc03</color>
+    <color name="status_released">#FF03fc0f</color>
+    <color name="status_cancelled">#FFfc3103</color>
 </resources>

@@ -4,4 +4,10 @@
     <string name="str_no_network_error">Please check your network!!!</string>
     <string name="str_server_side_issue">Oops Something Went wrong. Please try again</string>
     <string name="str_client_side_issue">The Page is not available</string>
+    <string name="str_imdb_url">https://www.imdb.com/title/%1$s/</string>
+    <string name="str_running_time">Running Time: %1$s min</string>
+    <string name="str_release_date">On Screen: %1$s</string>
+    <string name="str_home_page">Click here for more details</string>
+    <string name="str_label">Label Text</string>
+    <string name="str_try_again">Try Again</string>
 </resources>

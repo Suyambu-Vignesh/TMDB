@@ -4,7 +4,7 @@
     android:layout_width="45dp"
     android:layout_height="45dp"
     android:background="@drawable/ic_popularity_background"
-    android:visibility="gone">
+    android:visibility="visible">
 
     <!-- ProgressBar that represents a chart slice, where "android:progress" is the % value of the slice -->
     <ProgressBar
@@ -29,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
+        android:lines="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

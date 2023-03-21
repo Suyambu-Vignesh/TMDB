@@ -22,6 +22,12 @@
         <item name="android:textSize">?attr/sizeTextSecondary</item>
     </style>
 
+    <style name="TMBDTextDeeplink" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">?attr/colorSecondary</item>
+        <item name="android:textSize">?attr/sizeTextSecondary</item>
+        <item name="android:textStyle">bold|italic</item>
+    </style>
+
     <style name="TMBDTextTertiary" parent="TextAppearance.MaterialComponents.Tooltip">
         <item name="android:textColor">?attr/colorTextTertiary</item>
         <item name="android:textSize">?attr/sizeTextTertiary</item>
