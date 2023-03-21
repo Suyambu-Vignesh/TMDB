@@ -10,6 +10,7 @@ import com.tmdb.app.core.principle.model.PagingContentModules
 import com.tmdb.app.core.principle.usecase.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -18,7 +19,7 @@ import javax.inject.Inject
  * ViewModel for [ShowsInfoFragament]
  */
 @HiltViewModel
-class ShowInfoViewModel @Inject constructor(
+class ShowsInfoViewModel @Inject constructor(
     private val getShowInfoUseCase: GetShowInfoUseCase,
     private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
@@ -26,16 +27,24 @@ class ShowInfoViewModel @Inject constructor(
         private const val KEY_SHOW_CONFIG = "KEY_SHOW_CONFIG"
     }
 
-    private val newsFlow by lazy {
+    private val showsInfoStateFlow: MutableStateFlow<Result<PagingContentModules>> =
+        MutableStateFlow(Result.Loading())
+
+    private val showsInfoFlow by lazy {
         savedStateHandle.getLiveData(KEY_SHOW_CONFIG, ShowConfig.PopularMovieShowConfig()).asFlow()
             .flatMapLatest {
+                showsInfoStateFlow.value =
+                    Result.Loading<Result<PagingContentModules>>() as Result<PagingContentModules>
                 getShowInfoUseCase.performTask(1)
             }.flatMapLatest {
                 flow {
+                    showsInfoStateFlow.value = it
                     emit(
                         if (it is Result.Response && it.data is PagingContentModules) {
                             it.data
                         } else {
+
+                            it.failure
                             PagingData.empty()
                         }
                     )
@@ -54,6 +63,13 @@ class ShowInfoViewModel @Inject constructor(
      * Will encapsulate the [MutableStateFlow] to [StateFlow]
      */
     internal fun getShowInfoFlow(): Flow<PagingContentModules> {
-        return newsFlow
+        return showsInfoFlow
+    }
+
+    /**
+     * Will encapsulate the [MutableStateFlow] to [StateFlow]
+     */
+    internal fun getShowsStateFlow(): MutableStateFlow<Result<PagingContentModules>> {
+        return showsInfoStateFlow
     }
 }

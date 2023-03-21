@@ -15,5 +15,5 @@ interface ContentModuleModel {
  * Help to decide the type of list item
  */
 enum class ModuleType(val type: Int) {
-    MOVIE_TILE(1)
+    PLACE_HOLDER_TILE(1), MOVIE_TILE(2)
 }

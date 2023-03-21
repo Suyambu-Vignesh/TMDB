@@ -1,6 +1,7 @@
 package com.tmdb.app.core.shared.view.viewholderdelegates
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -8,9 +9,6 @@ import com.tmdb.app.R
 import com.tmdb.app.core.principle.model.ContentModuleModel
 import com.tmdb.app.databinding.ViewShowInfoBinding
 import com.tmdb.app.home.model.MovieAndTvShowsInfo
-import dagger.Module
-import dagger.hilt.InstallIn
-import dagger.hilt.android.components.FragmentComponent
 
 /**
  * Delegate For the Show Info Tile
@@ -18,8 +16,6 @@ import dagger.hilt.android.components.FragmentComponent
  * @param layoutInflater [LayoutInflater],
  * @param onClickListener Click Listener
  */
-@Module
-@InstallIn(FragmentComponent::class)
 class ShowsInfoContentDelegate(
     private val layoutInflater: LayoutInflater,
     private val onClickListener: RecyclerViewHolderClickListener<ContentModuleModel>?
@@ -58,7 +54,8 @@ class ShowsInfoContentDelegate(
             viewBinding.textShowTitle.text = item.originalTitle
             viewBinding.textReleaseDate.text = item.releaseDate
 
-            if (item.voteAverage != null) {
+            if (item.voteAverage != null && item.voteAverage != 0.0) {
+                viewBinding.viewGroupPopularity.root.visibility = View.VISIBLE
                 val popularity = item.voteAverage * 10
                 viewBinding.viewGroupPopularity.textPopularity.text = popularity.toString()
                 viewBinding.viewGroupPopularity.progressPopularity.setProgress(popularity.toInt())

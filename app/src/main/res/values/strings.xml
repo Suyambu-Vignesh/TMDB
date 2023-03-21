@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TMDB</string>
     <string name="action_settings">Settings</string>
+    <string name="str_no_network_error">Please check your network!!!</string>
+    <string name="str_server_side_issue">Oops Something Went wrong. Please try again</string>
+    <string name="str_client_side_issue">The Page is not available</string>
 </resources>

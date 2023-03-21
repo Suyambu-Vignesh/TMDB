@@ -1,6 +1,6 @@
 package com.tmdb.app.home
 
 /**
- * Testsuite for [ShowInfoViewModel]
+ * Testsuite for [ShowsInfoViewModel]
  */
 class ShowInfoViewModelTest

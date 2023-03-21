@@ -3,6 +3,7 @@
     <dimen name="margin16dp">16dp</dimen>
     <dimen name="margin8dp">8dp</dimen>
     <dimen name="margin4dp">4dp</dimen>
+    <dimen name="margin32dp">32dp</dimen>
 
     <!-- text size -->
 

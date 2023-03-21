@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="TMBDTextHeadLine" parent="TextAppearance.Material3.TitleSmall">
         <item name="android:textColor">?attr/colorTextHeadLine</item>
         <item name="android:textSize">?attr/sizeTextHeadLine</item>
@@ -25,5 +26,18 @@
         <item name="android:textColor">?attr/colorTextTertiary</item>
         <item name="android:textSize">?attr/sizeTextTertiary</item>
         <item name="android:textStyle">bold|italic</item>
+    </style>
+
+    <style name="TMBDButton" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">?attr/colorPrimary</item>
+        <item name="colorBackground">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="TMBDButtonSmall" parent="Widget.AppCompat.Button.Colored">
+        <item name="maxHeight">32dp</item>
+        <item name="colorButtonNormal">?attr/colorPrimary</item>
+        <item name="colorBackground">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 </resources>

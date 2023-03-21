@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.TMDB" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!--- colors -->
@@ -25,10 +25,12 @@
         <item name="sizeTextSecondary">@dimen/textSecondary</item>
         <item name="sizeTextTertiary">@dimen/textTertiary</item>
         <item name="sizeTextSubHeadLine">@dimen/textSubHeadline</item>
+        <item name="sizeTextHeadLine">@dimen/textHeadline</item>
 
         <item name="marginSizeFull">@dimen/margin16dp</item>
         <item name="marginSizeHalf">@dimen/margin8dp</item>
         <item name="marginSizeQuarter">@dimen/margin4dp</item>
+        <item name="marginSize2X">@dimen/margin32dp</item>
         <item name="thumbnailDimen">@dimen/thumbnailImage</item>
         <item name="dividerDimen">@dimen/dividerSize</item>
 
@@ -41,6 +43,16 @@
 
         <!-- content desc -->
         <item name="contentDescMovieThumbnail">@string/content_desc_movie_thumbnail</item>
+        <item name="contentDescNoNetworkImage">@string/content_desc_no_network</item>
+
+        <!-- string -->
+        <item name="stringNoNetworkError">@string/str_no_network_error</item>
+        <item name="stringServerSideError">@string/str_server_side_issue</item>
+        <item name="stringClientSideError">@string/str_client_side_issue</item>
+
+        <!-- button style -->
+        <item name="buttonColored">@style/TMBDButton</item>
+        <item name="buttonSmallColored">@style/TMBDButtonSmall</item>
     </style>
 
     <style name="Theme.TMDB.NoActionBar">
