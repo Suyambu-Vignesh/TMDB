@@ -18,6 +18,6 @@ class GetShowInfoUseCase @Inject constructor(
     private val tmdbRepository: TmdbRepository
 ) : UseCase<Result<PagingData<ContentModuleModel>>, Int> {
     override suspend fun performTask(pageNumber: Int): Flow<Result<PagingContentModules>> {
-        return tmdbRepository.getPopularMovies(pageNumber)
+        return tmdbRepository.getShowInfos(pageNumber)
     }
 }

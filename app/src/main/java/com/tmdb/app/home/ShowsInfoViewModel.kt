@@ -21,7 +21,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ShowsInfoViewModel @Inject constructor(
     private val getShowInfoUseCase: GetShowInfoUseCase,
-    private val savedStateHandle: SavedStateHandle,
+    private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
     companion object {
         private const val KEY_SHOW_CONFIG = "KEY_SHOW_CONFIG"

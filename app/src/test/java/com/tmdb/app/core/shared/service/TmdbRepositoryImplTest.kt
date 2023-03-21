@@ -63,7 +63,7 @@ class TmdbRepositoryImplTest {
     @Test
     fun `test paging source success response`() = runBlocking {
         var data: Result<PagingData<ContentModuleModel>>? = null
-        tmdbRepository.getPopularMovies(1).catch {}.take(1).collect {
+        tmdbRepository.getShowInfos(1).catch {}.take(1).collect {
             data = it
         }
         Truth.assertThat(data?.data).isNotNull()

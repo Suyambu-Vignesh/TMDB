@@ -2,7 +2,7 @@ package com.tmdb.app.core.shared.repository.api
 
 import com.tmdb.app.core.principle.model.PagingContentModules
 import com.tmdb.app.core.principle.usecase.Result
-import com.tmdb.app.detail.model.MovieTvShowDetail
+import com.tmdb.app.detail.model.ShowDetail
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -14,7 +14,7 @@ interface TmdbRepository {
      *
      * @param pageNumber - PageNumber from which we are looking the popular movies.
      */
-    suspend fun getPopularMovies(
+    suspend fun getShowInfos(
         pageNumber: Int
     ): Flow<Result<PagingContentModules>>
 
@@ -23,7 +23,7 @@ interface TmdbRepository {
      *
      * @param id Id of the movies or tv show
      */
-    suspend fun getMovieTvShowDetail(
-        id: String
-    ): Flow<Result<MovieTvShowDetail>>
+    suspend fun getShowsDetails(
+        id: Int
+    ): Flow<Result<ShowDetail>>
 }

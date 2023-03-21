@@ -1,7 +1,7 @@
 package com.tmdb.app.core.shared.service
 
 import com.tmdb.app.BuildConfig
-import com.tmdb.app.detail.model.MovieTvShowDetail
+import com.tmdb.app.detail.model.ShowDetail
 import com.tmdb.app.home.model.MovieAndTvShowCollections
 import retrofit2.Response
 import retrofit2.http.GET
@@ -31,6 +31,6 @@ interface TmdbApiSource {
     @GET("${BuildConfig.TMBD_API_VERSION}/movie/{id}?api_key=${BuildConfig.TMDB_API_KEY}")
     suspend fun getMovieTvShowDetail(
         @Path("id")
-        id: String
-    ): Response<MovieTvShowDetail>
+        id: Int
+    ): Response<ShowDetail>
 }
