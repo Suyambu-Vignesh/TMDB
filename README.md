@@ -6,7 +6,8 @@ An Unofficial Android Client for https://www.themoviedb.org/ For learning.
 This App provides support for the popular movies from https://www.themoviedb.org/ and a detail infomration about the movie. Launching the 
 App will show the endless popular movies.
 
-The Tile of the Movie Info collection will provide
+### Show Info Screen
+Shows a paginated results of popular movie. The Tile of the Movie Info collection will provide
   * Image of the Show
   * Show Original title
   * Show popularity
@@ -14,22 +15,35 @@ The Tile of the Movie Info collection will provide
 
 Tapping this Show brief Will give detail information about the show
 
-**(Detail is WIP)**
+### Show Detail Page
+Can learn about the detail info of show like
+  * Language
+  * Genre
+  * Running time
+  * Short story
+  * Link to IMDB 
+  * Link to Home page
 
-#Architecture 
+# Architecture 
 ***
+
 This App supports the latest MVVM Clean with Hilt. App is structured around the pages with an understanding when roadmap become bigger the app can become collection of page as Module. Where the common component are moved to shared folder, latter we can move its own repo.
 
+This App Uses
+  * MVVM Clean (View <> ViewModel <> UseCase <> Repo <> Data Source) (to keep the view model more clean and lean)
+  * Hilt for Initialization with proper scope
+  * Theme supported attr. To support faster re-skinning of Apps
+  * Flow and State Flow to control the Flow of data as unidirectional. Keep the ViewModel and beyond free from android packages
 
-#ScreenShots
+
+# ScreenShots
 ***
 
-![Alt text](https://user-images.githubusercontent.com/8298720/226329288-44bba38b-5566-4ff0-b817-d0a29e818912.png "Phone Grid")
-
+<img src="https://user-images.githubusercontent.com/8298720/226824854-aa916ef8-3783-428a-910b-a27b7cc1fc7c.png" alt="alt text" width="629" height="136">
 
 #Android Studio IDE setup
 ***
 
 
-#Others
+# Others
 ***
