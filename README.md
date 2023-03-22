@@ -34,7 +34,7 @@ This App Uses
   * MVVM Clean (View <> ViewModel <> UseCase <> Repo <> Data Source) (to keep the view model more clean and lean)
   * Hilt for Initialization with proper scope
   * Theme supported attr. To support faster re-skinning of Apps
-  * Flow and State Flow to control the Flow of data as unidirectional. Keep the ViewModel and beyond free from android packages
+  * Flow and State Flow to control the Flow of data as unidirectional. Keep the Usecase and beyond free from android packages
 
 
 ## Android Studio IDE setup
