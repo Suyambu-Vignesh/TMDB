@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import androidx.paging.PagingData
+import androidx.transition.TransitionManager
 import com.tmdb.app.R
 import com.tmdb.app.core.principle.model.ContentModuleModel
 import com.tmdb.app.core.principle.model.PagingContentModules
@@ -24,7 +25,7 @@ import com.tmdb.app.core.shared.view.viewholderdelegates.ContentPagingAdapter
 import com.tmdb.app.core.shared.view.viewholderdelegates.PagingLoadStateAdapter
 import com.tmdb.app.core.shared.view.viewholderdelegates.RecyclerViewHolderClickListener
 import com.tmdb.app.databinding.FragmentShowsInfoBinding
-import com.tmdb.app.detail.ShowDetailFragment
+import com.tmdb.app.detail.view.ShowDetailFragment
 import com.tmdb.app.home.model.MovieAndTvShowsInfo
 import com.tmdb.app.home.model.getLoadingData
 import dagger.hilt.android.AndroidEntryPoint
@@ -126,6 +127,8 @@ class ShowsInfoFragment :
      */
     private fun renderError(failure: Failure) {
         _binding?.let {
+            TransitionManager.beginDelayedTransition(binding.root)
+
             it.viewError.visibility = View.VISIBLE
             it.viewRecyclerview.visibility = View.GONE
 

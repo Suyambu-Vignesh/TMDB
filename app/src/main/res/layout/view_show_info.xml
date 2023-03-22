@@ -4,6 +4,7 @@
     style="@style/CardView.Light"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:cardBackgroundColor="?attr/colorOnPrimary"
     android:layout_marginStart="?attr/marginSizeHalf"
     android:layout_marginTop="?attr/marginSizeHalf"
     android:layout_marginBottom="?attr/marginSizeHalf"

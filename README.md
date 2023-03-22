@@ -1,6 +1,7 @@
 # Tmdb
 ***
 
+## Features
 An Unofficial Android Client for https://www.themoviedb.org/ For learning.
 
 This App provides support for the popular movies from https://www.themoviedb.org/ and a detail infomration about the movie. Launching the 
@@ -24,7 +25,7 @@ Can learn about the detail info of show like
   * Link to IMDB 
   * Link to Home page
 
-# Architecture 
+## Architecture 
 ***
 
 This App supports the latest MVVM Clean with Hilt. App is structured around the pages with an understanding when roadmap become bigger the app can become collection of page as Module. Where the common component are moved to shared folder, latter we can move its own repo.
@@ -36,14 +37,15 @@ This App Uses
   * Flow and State Flow to control the Flow of data as unidirectional. Keep the ViewModel and beyond free from android packages
 
 
-# ScreenShots
+## Android Studio IDE setup
+***
+
+Gradle version : 7.4
+Android Studio : Dolphin and Above
+
+Please disable gradle offline and do a gradle sync.
+
+## ScreenShots
 ***
 
 <img src="https://user-images.githubusercontent.com/8298720/226824854-aa916ef8-3783-428a-910b-a27b7cc1fc7c.png" alt="alt text" width="629" height="136">
-
-#Android Studio IDE setup
-***
-
-
-# Others
-***

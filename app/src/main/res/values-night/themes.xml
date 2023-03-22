@@ -5,7 +5,7 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/teal_1</item>
         <item name="colorPrimaryVariant">@color/teal_2</item>
-        <item name="colorOnPrimary">@color/black_2</item>
+        <item name="colorOnPrimary">@color/black_1</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/dark_blue_1</item>
         <item name="colorSecondaryVariant">@color/dark_blue_2</item>
@@ -40,7 +40,8 @@
         <item name="textSecondary">@style/TMBDTextSecondary</item>
         <item name="textDeeplink">@style/TMBDTextDeeplink</item>
         <item name="textTertiary">@style/TMBDTextTertiary</item>
-        <item name="textSubHeadLine">@style/TMBDTextHeadLine</item>
+        <item name="textSubHeadLine">@style/TMBDTextSubHeadLine</item>
+        <item name="textHeadLine">@style/TMBDTextHeadLine</item>
 
         <!-- content desc -->
         <item name="contentDescMovieThumbnail">@string/content_desc_movie_thumbnail</item>
