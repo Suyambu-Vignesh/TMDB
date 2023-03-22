@@ -1,4 +1,4 @@
-package com.tmdb.app.core.principle
+package com.tmdb.app.core.principle.log
 
 import android.util.Log
 

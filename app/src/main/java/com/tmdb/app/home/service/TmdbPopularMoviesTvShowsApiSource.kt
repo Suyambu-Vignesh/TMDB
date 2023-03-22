@@ -2,9 +2,9 @@ package com.tmdb.app.home.service
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.tmdb.app.core.principle.TmdbLogging
+import com.tmdb.app.core.principle.getFailure
+import com.tmdb.app.core.principle.log.TmdbLogging
 import com.tmdb.app.core.principle.model.ContentModuleModel
-import com.tmdb.app.core.principle.usecase.GenericFailure
 import com.tmdb.app.core.principle.usecase.PageLoadException
 import com.tmdb.app.core.principle.usecase.ServiceFailure
 import com.tmdb.app.core.shared.service.TmdbApiSource
@@ -33,7 +33,7 @@ class TmdbPopularMoviePagingSource @Inject constructor(
             data.getCollectionResult(currentPageNumber)
         } catch (exe: Exception) {
             TmdbLogging.error(toString(), exe.message ?: "", exe)
-            PagingSource.LoadResult.Error(PageLoadException(failure = GenericFailure(), cause = exe))
+            LoadResult.Error(PageLoadException(failure = exe.getFailure(), cause = exe))
         }
     }
 }

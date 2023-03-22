@@ -5,12 +5,14 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.tmdb.app.R
+import com.tmdb.app.core.principle.usecase.Failure
+import com.tmdb.app.core.principle.usecase.GenericFailure
 import com.tmdb.app.core.principle.usecase.NetworkFailure
 import com.tmdb.app.core.principle.usecase.Result
 import com.tmdb.app.core.principle.usecase.ServiceFailure
 import com.tmdb.app.core.principle.usecase.TimeOutFailure
 import com.tmdb.app.databinding.ViewErrorBinding
-import kotlinx.android.synthetic.main.view_error.view.*
+import kotlinx.android.synthetic.main.view_error.view.image
 
 /**
  * Error View for TMDB.
@@ -46,14 +48,27 @@ class TmdbErrorView : ConstraintLayout {
     }
 
     /**
-     * Method help to render the appropriate error view based on the [Failure]
+     * Method help to render the appropriate error view based on the [Result.Error]
      *
      * @param error [Result.Error]
      * @param onClick ClickListener
      */
     internal fun setError(error: Result.Error<*>, onClick: () -> Unit) {
+        setFailure(
+            error.failure ?: GenericFailure(),
+            onClick
+        )
+    }
+
+    /**
+     * Method help to render the appropriate error view based on the [Failure]
+     *
+     * @param failure [Failure]
+     * @param onClick ClickListener
+     */
+    internal fun setFailure(failure: Failure, onClick: () -> Unit) {
         when {
-            error.failure is TimeOutFailure || error.failure is NetworkFailure -> {
+            failure is TimeOutFailure || failure is NetworkFailure -> {
                 binding?.let {
                     it.image.image.setImageResource(R.drawable.ic_no_network)
                     it.textErrorTitle.setText(R.string.str_no_network_error)
@@ -64,7 +79,7 @@ class TmdbErrorView : ConstraintLayout {
                 }
             }
 
-            error.failure is ServiceFailure && error.failure.errorCode >= 500 -> {
+            failure is ServiceFailure && failure.errorCode >= 500 -> {
                 // Server Side issue
                 binding?.let {
                     it.image.image.setImageResource(R.drawable.ic_server_side_issue)

@@ -13,7 +13,7 @@ import dagger.hilt.android.components.FragmentComponent
 class PagingLoadStateAdapterInit {
 
     @Provides
-    fun pagingLoadStateAdapter(
+    fun providesPagingLoadStateAdapter(
         layoutInflater: LayoutInflater,
         adapter: ContentPagingAdapter
     ): PagingLoadStateAdapter {

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:horizontalSpacing="?attr/marginSizeHalf"
+    android:numColumns="@integer/column_span"
+    android:verticalSpacing="?attr/marginSizeHalf">
+
+    <include
+        android:id="@+id/view_group_popularity"
+        layout="@layout/view_popularity"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="?attr/marginSizeFull"
+        android:layout_marginTop="?attr/marginSizeHalf" />
+
+</GridView>
