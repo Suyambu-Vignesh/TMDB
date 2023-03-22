@@ -22,7 +22,7 @@ class ImageUtilsTest {
         every { context.resources } returns resource
         every { resource.displayMetrics } returns displayMetrics
 
-        Truth.assertThat(ImageUtils.getThumbnailImageSize(context)).isEqualTo("w500")
+        Truth.assertThat(ImageUtils.getThumbnailImageSize(context, "url")).contains("w500")
     }
 
     @Test
@@ -35,7 +35,7 @@ class ImageUtilsTest {
         every { context.resources } returns resource
         every { resource.displayMetrics } returns displayMetrics
 
-        Truth.assertThat(ImageUtils.getThumbnailImageSize(context)).isEqualTo("w200")
+        Truth.assertThat(ImageUtils.getThumbnailImageSize(context, "url")).contains("w200")
     }
 
     @Test
@@ -48,7 +48,7 @@ class ImageUtilsTest {
         every { context.resources } returns resource
         every { resource.displayMetrics } returns displayMetrics
 
-        Truth.assertThat(ImageUtils.getThumbnailImageSize(context)).isEqualTo("w300")
+        Truth.assertThat(ImageUtils.getThumbnailImageSize(context, "url")).contains("w300")
     }
 
     @Test
@@ -61,6 +61,6 @@ class ImageUtilsTest {
         every { context.resources } returns resource
         every { resource.displayMetrics } returns displayMetrics
 
-        Truth.assertThat(ImageUtils.getThumbnailImageSize(context)).isEqualTo("w500")
+        Truth.assertThat(ImageUtils.getThumbnailImageSize(context, "url")).contains("w500")
     }
 }
