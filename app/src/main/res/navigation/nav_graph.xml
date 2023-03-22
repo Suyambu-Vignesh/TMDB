@@ -21,6 +21,6 @@
 
     <fragment
         android:id="@+id/ShowDetailFragment"
-        android:name="com.tmdb.app.detail.ShowDetailFragment"
+        android:name="com.tmdb.app.detail.view.ShowDetailFragment"
         tools:layout="@layout/fragment_detail" />
 </navigation>
