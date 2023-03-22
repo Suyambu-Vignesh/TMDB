@@ -1,4 +1,4 @@
-package com.tmdb.app.core.principle
+package com.tmdb.app.core.principle.log
 
 /**
  * API for sending log output.

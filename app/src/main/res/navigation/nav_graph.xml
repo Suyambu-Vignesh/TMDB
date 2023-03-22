@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/ShowInfoFragment"
-        android:name="com.tmdb.app.home.ShowsInfoFragament"
+        android:name="com.tmdb.app.home.ShowsInfoFragment"
         tools:layout="@layout/fragment_shows_info">
 
         <action

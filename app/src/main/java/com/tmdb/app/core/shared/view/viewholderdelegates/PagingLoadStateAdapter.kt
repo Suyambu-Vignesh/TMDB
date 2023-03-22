@@ -12,6 +12,12 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
 import javax.inject.Inject
 
+/**
+ * Adapter to just load the progress bar at the bottom of the recyler view
+ *
+ * @param layoutInflater [LayoutInflater]
+ * @param adapter root Adapter [ContentPagingAdapter]
+ */
 @Module
 @InstallIn(FragmentComponent::class)
 class PagingLoadStateAdapter @Inject constructor(

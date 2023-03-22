@@ -57,15 +57,16 @@ class ShowDetailFragment : Fragment() {
         return binding.root
     }
 
-    private fun loadShowDetail() {
-        arguments?.getInt(ARGUMENT_MOVIE_ID)?.let {
-            viewModel.getShowDetail(it)
-        }
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+        /**
+         * View Cycle Observer which look for state change and update the view based on the state.
+         * It will emit one of three state
+         *      1) Loading State
+         *      2) Response of [ShowDetail]
+         *      3) Error
+         */
+        viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 viewModel.getShowDetailStateFlow().collectLatest {
                     if (_binding == null) {
@@ -79,19 +80,11 @@ class ShowDetailFragment : Fragment() {
                         }
 
                         it.data != null -> {
-                            binding.viewProgress.root.visibility = View.GONE
-                            binding.viewError.visibility = View.GONE
                             renderDetails(it.data)
                         }
 
                         else -> {
-                            binding.viewProgress.root.visibility = View.GONE
-                            binding.viewError.visibility = View.VISIBLE
-                            binding.viewError.setError(
-                                it as? Result.Error<*> ?: Result.Error<ShowDetail>(GenericFailure())
-                            ) {
-                                loadShowDetail()
-                            }
+                            renderError(it)
                         }
                     }
                 }
@@ -99,9 +92,41 @@ class ShowDetailFragment : Fragment() {
         }
     }
 
+    /**
+     * Helper function to render the Error based on [Failure]
+     *
+     * @param result [Result<ShowDetail>]
+     */
+    private fun renderError(result: Result<ShowDetail>) {
+        binding.viewProgress.root.visibility = View.GONE
+        binding.viewError.visibility = View.VISIBLE
+        binding.viewError.setError(
+            result as? Result.Error<*> ?: Result.Error<ShowDetail>(GenericFailure())
+        ) {
+            loadShowDetail()
+        }
+    }
+
+    /**
+     * Helper function to update the state change and request new data in back in pipeline
+     */
+    private fun loadShowDetail() {
+        arguments?.getInt(ARGUMENT_MOVIE_ID)?.let {
+            viewModel.getShowDetail(it)
+        }
+    }
+
+    /**
+     * Helper function to render the Detail page
+     *
+     * @param showDetail [ShowDetail]
+     */
     private fun renderDetails(showDetail: ShowDetail) {
-        loadImage(showDetail.backdropPath)
+        binding.viewProgress.root.visibility = View.GONE
+        binding.viewError.visibility = View.GONE
+
         binding.showDetailTitle.text = showDetail.originalTitle
+        loadImage(showDetail.backdropPath)
         loadUseScore(showDetail.voteAverage)
         loadImdbInfo(showDetail.imdbId)
         loadGenres(showDetail.genres)
@@ -110,6 +135,11 @@ class ShowDetailFragment : Fragment() {
         binding.textDetail.text = showDetail.overview
     }
 
+    /**
+     * Helper function to render if the image url is not null
+     *
+     * @param imageUrl [String]
+     */
     private fun loadImage(imageUrl: String?) {
         if (context != null && imageUrl != null) {
             val imgUrl = ImageUtils.getThumbnailImageSize(
@@ -122,8 +152,14 @@ class ShowDetailFragment : Fragment() {
         }
     }
 
+    /**
+     * Helper Fun to render the Popularity Score if the score is not null and not zero
+     *
+     * @param score Popularity Score
+     */
     private fun loadUseScore(score: Double?) {
         if (score == null || score == 0.0) {
+            binding.viewGroupPopularity.root.visibility = View.GONE
             return
         }
 
@@ -138,6 +174,11 @@ class ShowDetailFragment : Fragment() {
         }
     }
 
+    /**
+     * Helper Fun to render the IMDB Button if the imdb Id is present or hide the button
+     *
+     * @param imdbId imdb id of the show.
+     */
     private fun loadImdbInfo(imdbId: String?) {
         if (imdbId == null) {
             binding.imdb.visibility = View.GONE
@@ -154,6 +195,11 @@ class ShowDetailFragment : Fragment() {
         }
     }
 
+    /**
+     * Helper Fun to load all the Genres If present
+     *
+     * @param genres collection of Genere
+     */
     private fun loadGenres(genres: ArrayList<Genres?>?) {
         if (genres.isNullOrEmpty()) {
             binding.viewGenres.visibility = View.GONE
@@ -176,6 +222,11 @@ class ShowDetailFragment : Fragment() {
         }
     }
 
+    /**
+     * Helper funtion to load a set of movie metadata like release status, release date, runing time
+     *
+     * @param showDetail [ShowDetail]
+     */
     private fun loadReleaseDateAndStatus(showDetail: ShowDetail) {
         showDetail.releaseDate?.let {
             binding.releaseDate.visibility = View.VISIBLE
@@ -217,6 +268,11 @@ class ShowDetailFragment : Fragment() {
         }
     }
 
+    /**
+     * Helper fun to load the Languages
+     *
+     * @param spokenLanguages collection of [SpokenLanguages]
+     */
     private fun loadLanguages(spokenLanguages: ArrayList<SpokenLanguages?>?) {
         if (spokenLanguages.isNullOrEmpty()) {
             binding.viewLanguagesLabel.visibility = View.GONE
