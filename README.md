@@ -36,6 +36,8 @@ This App Uses
   * Theme supported attr. To support faster re-skinning of Apps
   * Flow and State Flow to control the Flow of data as unidirectional. Keep the Usecase and beyond free from android packages
 
+https://user-images.githubusercontent.com/8298720/227378546-744fa438-e8ee-4f4c-a339-a0c4bbd9252e.png
+
 
 ## Android Studio IDE setup
 ***
