@@ -10,9 +10,10 @@ import com.tmdb.app.R
 import com.tmdb.app.core.principle.deeplink.Deeplink
 import com.tmdb.app.databinding.ViewLabelBinding
 import com.tmdb.app.databinding.ViewShowDetailBinding
-import com.tmdb.app.detail.model.Genres
-import com.tmdb.app.detail.model.ShowDetail
 import com.tmdb.app.detail.model.SpokenLanguages
+import com.tmdb.app.detail.model.api.ShowDetail
+import com.tmdb.app.detail.model.api.ShowGenre
+import com.tmdb.app.detail.model.api.ShowLanguage
 
 class ShowDetailView : ScrollView {
 
@@ -51,15 +52,15 @@ class ShowDetailView : ScrollView {
      */
     internal fun renderDetails(showDetail: ShowDetail) {
         binding?.let {
-            it.showDetailTitle.text = showDetail.originalTitle
-            it.textDetail.text = showDetail.overview
+            it.showDetailTitle.text = showDetail.getShowTitle()
+            it.textDetail.text = showDetail.getShowOverview()
         }
 
-        loadUseScore(showDetail.voteAverage)
-        loadImdbInfo(showDetail.imdbId)
-        loadGenres(showDetail.genres)
+        loadUseScore(showDetail.getShowScore())
+        loadImdbInfo(showDetail.getShowImdbId())
+        loadGenres(showDetail.getShowGenre())
         loadReleaseDateAndStatus(showDetail)
-        loadLanguages(showDetail.spokenLanguages)
+        loadLanguages(showDetail.getShowLanguages())
     }
 
     /**
@@ -114,7 +115,7 @@ class ShowDetailView : ScrollView {
      *
      * @param genres collection of Genere
      */
-    private fun loadGenres(genres: ArrayList<Genres?>?) {
+    private fun loadGenres(genres: ArrayList<ShowGenre>?) {
         binding?.let { binding ->
             if (genres.isNullOrEmpty()) {
                 binding.viewGenres.visibility = View.GONE
@@ -124,16 +125,13 @@ class ShowDetailView : ScrollView {
             binding.viewGenres.visibility = View.VISIBLE
 
             for (genre in genres) {
-                if (genre?.name == null) {
-                    continue
-                }
 
                 val viewBinding = ViewLabelBinding.inflate(LayoutInflater.from(context))
                 binding.viewGenresCollection.addView(
                     viewBinding.root
                 )
 
-                viewBinding.textLabel.text = genre.name
+                viewBinding.textLabel.text = genre.getShowGenre()
             }
         }
     }
@@ -145,15 +143,15 @@ class ShowDetailView : ScrollView {
      */
     private fun loadReleaseDateAndStatus(showDetail: ShowDetail) {
         binding?.let { binding ->
-            if (!showDetail.releaseDate.isNullOrEmpty()) {
+            showDetail.getShowReleaseDate()?.let {
                 binding.releaseDate.visibility = View.VISIBLE
                 binding.releaseDate.text =
-                    context.getString(R.string.str_release_date, showDetail.releaseDate)
-            } else {
+                    context.getString(R.string.str_release_date, it)
+            } ?: kotlin.run {
                 binding.releaseDate.visibility = View.GONE
             }
 
-            showDetail.runtime?.let {
+            showDetail.getShowRunningTime()?.let {
                 binding.runningTime.visibility = View.VISIBLE
                 binding.runningTime.text =
                     context.getString(R.string.str_running_time, it.toString())
@@ -161,28 +159,28 @@ class ShowDetailView : ScrollView {
                 binding.runningTime.visibility = View.GONE
             }
 
-            if (!showDetail.status.isNullOrEmpty()) {
+            showDetail.getShowReleaseStatus()?.let {
                 binding.viewStatus.root.visibility = View.VISIBLE
-                binding.viewStatus.textLabel.text = showDetail.status
+                binding.viewStatus.textLabel.text = it
                 showDetail.getStatusColor()?.let { color ->
                     binding.viewStatus.textLabel.setBackgroundResource(color)
                     context?.resources?.getColor(R.color.white_1)?.let { color ->
                         binding.viewStatus.textLabel.setTextColor(color)
                     }
                 }
-            } else {
+            } ?: kotlin.run {
                 binding.viewStatus.root.visibility = View.GONE
             }
 
-            if (!showDetail.homepage.isNullOrEmpty()) {
+            showDetail.getShowsHomePageDestination()?.let { uri ->
                 binding.homeLink.setOnClickListener {
                     Deeplink.handleWebUrl(
-                        showDetail.homepage,
+                        uri,
                         context
                     )
                 }
                 binding.homeLink.visibility = View.VISIBLE
-            } else {
+            } ?: kotlin.run {
                 binding.homeLink.visibility = View.GONE
             }
         }
@@ -193,7 +191,7 @@ class ShowDetailView : ScrollView {
      *
      * @param spokenLanguages collection of [SpokenLanguages]
      */
-    private fun loadLanguages(spokenLanguages: ArrayList<SpokenLanguages?>?) {
+    private fun loadLanguages(spokenLanguages: ArrayList<ShowLanguage>?) {
         binding?.let { binding ->
             if (spokenLanguages.isNullOrEmpty()) {
                 binding.viewLanguagesLabel.visibility = View.GONE
@@ -203,16 +201,13 @@ class ShowDetailView : ScrollView {
             binding.viewLanguagesLabel.visibility = View.VISIBLE
 
             for (lang in spokenLanguages) {
-                if (lang == null || lang.name.isNullOrEmpty()) {
-                    continue
-                }
 
                 val viewBinding = ViewLabelBinding.inflate(LayoutInflater.from(context))
                 binding.viewLanguagesCollection.addView(
                     viewBinding.root
                 )
 
-                viewBinding.textLabel.text = lang.name
+                viewBinding.textLabel.text = lang.getLanguage()
             }
         }
     }

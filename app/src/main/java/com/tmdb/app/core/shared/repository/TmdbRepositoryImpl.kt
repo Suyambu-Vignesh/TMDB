@@ -10,7 +10,7 @@ import com.tmdb.app.core.principle.usecase.Result
 import com.tmdb.app.core.principle.usecase.ServiceFailure
 import com.tmdb.app.core.shared.repository.api.TmdbRepository
 import com.tmdb.app.core.shared.service.TmdbApiSource
-import com.tmdb.app.detail.model.ShowDetail
+import com.tmdb.app.detail.model.api.ShowDetail
 import com.tmdb.app.home.service.TmdbPopularMoviePagingSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged

@@ -1,6 +1,7 @@
 package com.tmdb.app.detail.model
 
 import com.google.gson.annotations.SerializedName
+import com.tmdb.app.detail.model.api.ShowLanguage
 
 data class SpokenLanguages(
     @SerializedName("english_name")
@@ -9,4 +10,8 @@ data class SpokenLanguages(
     var iso6391: String? = null,
     @SerializedName("name")
     var name: String? = null
-)
+) : ShowLanguage {
+    override fun getLanguage(): String {
+        return name ?: ""
+    }
+}

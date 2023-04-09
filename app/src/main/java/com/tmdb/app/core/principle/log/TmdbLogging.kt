@@ -1,25 +1,32 @@
 package com.tmdb.app.core.principle.log
 
-import android.util.Log
+import com.tmdb.app.core.principle.log.api.AppLogger
+import javax.inject.Inject
 
-object TmdbLogging : AppLogging {
-    override fun debug(tag: String, message: String, exe: Throwable?) {
-        Log.d(tag, message, exe)
+object TmdbLogging : TmdbLoggingBase() {
+
+    fun debug(tag: String, message: String, exe: Throwable? = null) {
+        logger.debug(tag, message, exe)
     }
 
-    override fun error(tag: String, message: String, exe: Throwable?) {
-        Log.e(tag, message, exe)
+    fun error(tag: String, message: String, exe: Throwable? = null) {
+        logger.error(tag, message, exe)
     }
 
-    override fun warning(tag: String, message: String, exe: Throwable?) {
-        Log.w(tag, message, exe)
+    fun warning(tag: String, message: String, exe: Throwable? = null) {
+        logger.warning(tag, message, exe)
     }
 
-    override fun info(tag: String, message: String, exe: Throwable?) {
-        Log.i(tag, message, exe)
+    fun info(tag: String, message: String, exe: Throwable? = null) {
+        logger.info(tag, message, exe)
     }
 
-    override fun verbose(tag: String, message: String, exe: Throwable?) {
-        Log.v(tag, message, exe)
+    fun verbose(tag: String, message: String, exe: Throwable? = null) {
+        logger.verbose(tag, message, exe)
     }
+}
+
+open class TmdbLoggingBase {
+    @Inject
+    lateinit var logger: AppLogger
 }

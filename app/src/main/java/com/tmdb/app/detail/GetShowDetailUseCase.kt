@@ -3,7 +3,7 @@ package com.tmdb.app.detail
 import com.tmdb.app.core.principle.usecase.Result
 import com.tmdb.app.core.principle.usecase.api.UseCase
 import com.tmdb.app.core.shared.repository.api.TmdbRepository
-import com.tmdb.app.detail.model.ShowDetail
+import com.tmdb.app.detail.model.api.ShowDetail
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
