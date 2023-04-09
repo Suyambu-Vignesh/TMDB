@@ -3,7 +3,7 @@ package com.tmdb.app.detail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tmdb.app.core.principle.usecase.Result
-import com.tmdb.app.detail.model.ShowDetail
+import com.tmdb.app.detail.model.api.ShowDetail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

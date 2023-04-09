@@ -1,9 +1,9 @@
-package com.tmdb.app.core.principle.log
+package com.tmdb.app.core.principle.log.api
 
 /**
  * API for sending log output.
  */
-interface AppLogging {
+interface AppLogger {
 
     /**
      * Logging Helper help to log the debug message or errors

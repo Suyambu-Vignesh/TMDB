@@ -17,7 +17,8 @@ import com.tmdb.app.core.principle.usecase.GenericFailure
 import com.tmdb.app.core.principle.usecase.Result
 import com.tmdb.app.databinding.FragmentDetailBinding
 import com.tmdb.app.detail.ShowDetailViewModel
-import com.tmdb.app.detail.model.ShowDetail
+import com.tmdb.app.detail.model.ShowDetailImpl
+import com.tmdb.app.detail.model.api.ShowDetail
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.view_error.view.*
 import kotlinx.coroutines.flow.collectLatest
@@ -101,7 +102,7 @@ class ShowDetailFragment : Fragment() {
         binding.viewProgress.root.visibility = View.GONE
         binding.viewError.visibility = View.VISIBLE
         binding.viewError.setError(
-            result as? Result.Error<*> ?: Result.Error<ShowDetail>(GenericFailure())
+            result as? Result.Error<*> ?: Result.Error<ShowDetailImpl>(GenericFailure())
         ) {
             loadShowDetail()
         }
@@ -127,7 +128,7 @@ class ShowDetailFragment : Fragment() {
         binding.viewProgress.root.visibility = View.GONE
         binding.viewError.visibility = View.GONE
 
-        loadImage(showDetail.backdropPath)
+        loadImage(showDetail.getImageUrlPath())
 
         binding.showDetailScrollView.renderDetails(showDetail)
     }

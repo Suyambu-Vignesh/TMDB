@@ -2,7 +2,7 @@ package com.tmdb.app.core.shared.repository.api
 
 import com.tmdb.app.core.principle.model.PagingContentModules
 import com.tmdb.app.core.principle.usecase.Result
-import com.tmdb.app.detail.model.ShowDetail
+import com.tmdb.app.detail.model.api.ShowDetail
 import kotlinx.coroutines.flow.Flow
 
 /**
